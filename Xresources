@@ -1,0 +1,45 @@
+! special
+URxvt*foreground:   #c5c8c6
+URxvt*background:   #1e1f20
+URxvt*cursorColor:  #c5c8c6
+
+! black
+URxvt*color0:       #2a2b2e
+URxvt*color8:       #36383b
+
+! red
+URxvt*color1:       #bd442c
+URxvt*color9:       #bd5e4b
+
+! green
+URxvt*color2:       #0db461
+URxvt*color10:      #31b577
+
+! yellow
+URxvt*color3:       #e08428
+URxvt*color11:      #e0934f
+
+! blue
+URxvt*color4:       #057eda
+URxvt*color12:      #4192d9
+
+! magenta
+URxvt*color5:       #6d30db
+URxvt*color13:      #8a58db
+
+! cyan
+URxvt*color6:       #03a69d
+URxvt*color14:      #7dd8c1
+
+! white
+URxvt*color7:       #65686e
+URxvt*color15:      #c5c8c6
+
+! no scrollbar
+URxvt*scrollBar:    false
+
+! font
+URxvt*font: xft:Source Code Pro:pixelsize=14
+
+! cursor
+Xcursor.theme: oxy-zion

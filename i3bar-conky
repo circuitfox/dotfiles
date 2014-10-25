@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# tell i3bar to usejson
+echo '{"version": 1}'
+echo '['
+# make the loop simpler
+echo '[],'
+exec conky -c "$HOME/.conkyrc"
