@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# tell i3bar to usejson
+# tell i3bar to use json
 echo '{"version": 1}'
 echo '['
 # make the loop simpler
