@@ -65,14 +65,14 @@ Usage: (package-require 'package)"
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 ;; package setup
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
 (package-initialize)
 (when (not package-archive-contents)
   (package-refresh-contents))
 
 (package-require 'flycheck)
+(package-require 'magit)
 (package-require 'auto-complete)
 (package-require 'haskell-mode)
 (package-require 'csharp-mode)
