@@ -3,7 +3,7 @@
 ;; Copyright (C) 2014 , circuitfox
 
 ;; Author: circuitfox
-;; 
+;;
 ;; Version: 0.1
 ;; Package-Requires: ((emacs "24"))
 ;; Created with emacs-theme-generator, https://github.com/mswift42/theme-creator.

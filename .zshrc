@@ -56,7 +56,7 @@ source $ZSH/oh-my-zsh.sh
 
 source $ZSH_CUSTOM/aliases.sh
 
-export PATH="$HOME/home/chris/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.cabal/bin"
+export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.cabal/bin"
 
 # add cross-compiler path
 #export PATH="$PATH:$HOME/opt/cross/bin"
@@ -78,12 +78,5 @@ export PATH="$HOME/home/chris/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-#run ssh-agent
-#added_keys=$(ssh-add -l)
-#
-#if [ -n $(echo $added_keys | grep -o -e id_rsa) ]; then
-#  ssh-add "$HOME/.ssh/id_rsa"
-#fi
 
 EDITOR="emacs -nw"

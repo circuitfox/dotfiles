@@ -1,4 +1,4 @@
-oh-my-zsh/
-emacs.d/elpa
-emacs.d/ac-comphist.dat
-emacs.d/auto-save-list
+.oh-my-zsh/
+.emacs.d/elpa
+.emacs.d/ac-comphist.dat
+.emacs.d/auto-save-list

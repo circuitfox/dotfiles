@@ -88,6 +88,9 @@ Usage: (package-require 'package)"
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (setq flycheck-highlighting-mode 'lines)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(setq require-final-newline t)
 ;;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; c/c++/java/* features

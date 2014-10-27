@@ -16,7 +16,7 @@ function parse_git_branch {
 }
 
 function parse_git_state {
-    local GIT_STATE=""
+    local GIT_STATE=" "
 
     if ! git diff --cached --quiet 2> /dev/null; then
         GIT_STATE="$GIT_STATE$GIT_PROMPT_STAGED"
@@ -32,12 +32,15 @@ function parse_git_state {
 
     local NUM_AHEAD="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
     if [ "$NUM_AHEAD" -gt 0 ]; then
-        GIT_STATE="$GIT_STATE ${GIT_PROMPT_AHEAD//NUM/$NUM_AHEAD}"
+        if [ $GIT_STATE != " " ]; then
+            GIT_STATE="$GIT_STATE "
+        fi
+        GIT_STATE="$GIT_STATE${GIT_PROMPT_AHEAD//NUM/$NUM_AHEAD}"
     fi
 
     local NUM_BEHIND="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
     if [ "$NUM_BEHIND" -gt 0 ]; then
-        if [ "$NUM_AHEAD" -lt 1 ]; then
+        if [ $GIT_STATE != " " ]; then
             GIT_STATE="$GIT_STATE "
         fi
         GIT_STATE="$GIT_STATE${GIT_PROMPT_BEHIND//NUM/$NUM_AHEAD}"
@@ -50,7 +53,7 @@ function parse_git_state {
 
 function git_prompt_string {
     local git_where="$(parse_git_branch)"
-    [ -n "$git_where" ] && echo "$GIT_PROMPT_PREFIX${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX $(parse_git_state)"
+    [ -n "$git_where" ] && echo "$GIT_PROMPT_PREFIX${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX$(parse_git_state)"
 }
 
 function prompt_char {
