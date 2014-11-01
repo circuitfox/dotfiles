@@ -27,7 +27,7 @@ done
 install_oh_my_zsh() {
     if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
         if [ ! -d $DIR/.oh-my-zsh ]; then
-            git clone git://github.com/robbyrussell/oh-my-zsh.git $DIR/.oh_my_zsh
+            git clone git://github.com/robbyrussell/oh-my-zsh.git $DIR/.oh-my-zsh
         fi
         if [ $(echo "$SHELL") != "$(which zsh)" ]; then
             chsh -s "$(which zsh)"
