@@ -60,7 +60,7 @@
    `(font-lock-constant-face ((,class (:foreground ,const))))
    `(font-lock-doc-face ((,class (:foreground ,comment))))
    `(font-lock-function-name-face ((,class (:foreground ,func :bold t))))
-   `(font-lock-keyword-face ((,class (:bold ,class :foreground ,keyword))))
+   `(font-lock-keyword-face ((,class (:bold ,class :foreground ,fg2))))
    `(font-lock-string-face ((,class (:foreground ,str))))
    `(font-lock-type-face ((,class (:foreground ,type))))
    `(font-lock-variable-name-face ((,class (:foreground ,var))))

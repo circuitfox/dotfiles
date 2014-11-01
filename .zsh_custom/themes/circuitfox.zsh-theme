@@ -43,7 +43,7 @@ function parse_git_state {
         if [ $GIT_STATE != " " ]; then
             GIT_STATE="$GIT_STATE "
         fi
-        GIT_STATE="$GIT_STATE${GIT_PROMPT_BEHIND//NUM/$NUM_AHEAD}"
+        GIT_STATE="$GIT_STATE${GIT_PROMPT_BEHIND//NUM/$NUM_BEHIND}"
     fi
 
     if [[ -n $GIT_STATE ]]; then

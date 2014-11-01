@@ -17,7 +17,16 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'custom-theme-load-path "~/.emacs.d/theme")
 
+;; put autosaves and backups in /tmp
+(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
 (require 'package)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+
+(package-initialize)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 (defun package-require (package)
   "Install a PACKAGE unless it is already installed or a feature with the
@@ -29,12 +38,26 @@ Usage: (package-require 'package)"
       (require package)
     (error (package-install package))))
 
+(package-require 'flycheck)
+(package-require 'magit)
+(package-require 'haskell-mode)
+(package-require 'csharp-mode)
+(package-require 'markdown-mode)
+(package-require 'org)
+
 ;; turn off the ugly icon bar
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 
 ;; turn off the scroll bar
 (scroll-bar-mode 0)
+
+(if window-system
+    (load-theme 'circuitfox t))
+
+;; no tabs, four spaces
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
 
 (setq-default column-number-mode t)
 
@@ -54,34 +77,16 @@ Usage: (package-require 'package)"
 (setq ido-everywhere t)
 (ido-mode 1)
 
-;; no tabs, four spaces
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
+;; org-mode shortcuts
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
 
-(load-theme 'circuitfox t)
+;; find c# files
+(add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 
-;; put autosaves and backups in /tmp
-(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
-
-;; package setup
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-
-(package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-(package-require 'flycheck)
-(package-require 'magit)
-(package-require 'auto-complete)
-(package-require 'haskell-mode)
-(package-require 'csharp-mode)
-(package-require 'markdown-mode)
-
-(autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
-(setq auto-mode-alist (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
-
-(autoload 'markdown-mode "markdown-mode" "Major mode for editing Markdown code." t)
+;; find markdown files
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
@@ -91,7 +96,6 @@ Usage: (package-require 'package)"
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq require-final-newline t)
-;;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; c/c++/java/* features
 (setq c-default-style "k&r"
