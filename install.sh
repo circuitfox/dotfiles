@@ -3,7 +3,7 @@
 OLDPWD=$(pwd)
 DIR="$HOME/dotfiles"
 OLDDIR="$HOME/dotfiles.old"
-FILES=".emacs .emacs.d .i3 .Xresources .zsh_custom .zshrc .oh-my-zsh" # files and folders to symlink as dotfiles
+FILES=".emacs .emacs.d .i3 .Xresources .zsh_custom .zshrc .oh-my-zsh .irssi" # files and folders to symlink as dotfiles
 BINFILES="i3bar-conky" # files and folders to sylink to ~/bin
 
 echo "Creating backup dir: $OLDDIR"
