@@ -46,7 +46,7 @@ function parse_git_state {
         GIT_STATE="$GIT_STATE${GIT_PROMPT_BEHIND//NUM/$NUM_BEHIND}"
     fi
 
-    if [[ -n $GIT_STATE ]]; then
+    if [ $GIT_STATE != " " ]; then
         echo "$GIT_STATE"
     fi
 }

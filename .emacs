@@ -41,7 +41,6 @@ Usage: (package-require 'package)"
 (package-require 'flycheck)
 (package-require 'magit)
 (package-require 'haskell-mode)
-(package-require 'csharp-mode)
 (package-require 'markdown-mode)
 (package-require 'org)
 
@@ -82,9 +81,6 @@ Usage: (package-require 'package)"
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
-
-;; find c# files
-(add-to-list 'auto-mode-alist '("\\.cs$" . csharp-mode))
 
 ;; find markdown files
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
