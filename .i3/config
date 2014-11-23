@@ -9,13 +9,16 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
 
 set $statusbg #1E1F20
 set $statusfg #C5C8C6
 set $ws_active_border #444649
 set $ws_active_bg #36383B
 set $ws_active_fg #C5C8C6
+
+new_window pixel 1
+new_float pixel 1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -168,13 +171,15 @@ bar {
         }
 }
 
+set $i3exit /home/chris/bin/i3exit
+
 mode "(l)ock lo(g)out (s)leep (h)ibernate (r)estart shut(d)own" {
-     bindsym l exec --no-startup-id i3exit lock; mode "default"
-     bindsym g exec --no-startup-id i3exit logout; mode "default"
-     bindsym s exec --no-startup-id i3exit suspend; mode "default"
-     bindsym h exec --no-startup-id i3exit hibernate; mode "default"
-     bindsym r exec --no-startup-id i3exit restart; mode "default"
-     bindsym d exec --no-startup-id i3exit shutdown; mode "default"
+     bindsym l exec --no-startup-id $i3exit lock; mode "default"
+     bindsym g exec --no-startup-id $i3exit logout; mode "default"
+     bindsym s exec --no-startup-id $i3exit suspend; mode "default"
+     bindsym h exec --no-startup-id $i3exit hibernate; mode "default"
+     bindsym r exec --no-startup-id $i3exit restart; mode "default"
+     bindsym d exec --no-startup-id $i3exit shutdown; mode "default"
 
      bindsym Return mode "default"
      bindsym Escape mode "default"
@@ -190,9 +195,24 @@ exec --no-startup-id sh ~/.fehbg &
 # float popups
 for_window [window_role="pop-up"] floating enable, move absolute center
 
-# border shortcuts (for terminals sitting below emacs, etc.)
+# border shortcuts
 bindsym $mod+t border normal
 bindsym $mod+y border 1pixel
 bindsym $mod+u border none
 
 exec --no-startup-id nm-applet
+
+bindsym $mod+c exec chromium
+bindsym $mod+e exec emacs
+
+mode "pianobar - (p)lay/pause (q)uit (n)ext" {
+     bindsym p exec --no-startup-id sh -c "echo 'p' > $HOME/.config/pianobar/ctl"
+     bindsym q exec --no-startup-id sh -c "echo 'q' > $HOME/.config/pianobar/ctl"; mode "default"
+     bindsym n exec --no-startup-id sh -c "echo 'n' > $HOME/.config/pianobar/ctl"
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+
+bindsym $mod+p mode "pianobar - (p)lay/pause (q)uit (n)ext"
+bindsym $mod+Shift+p exec pianobar
