@@ -52,7 +52,8 @@ Usage: (package-require 'package)"
 (scroll-bar-mode 0)
 
 (if window-system
-    (load-theme 'circuitfox t))
+    (load-theme 'circuitfox t)
+  (load-theme 'circuitfox-console t))
 
 ;; no tabs, four spaces
 (setq-default indent-tabs-mode nil)
