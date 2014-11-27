@@ -13,9 +13,9 @@ set $mod Mod4
 
 set $statusbg #1E1F20
 set $statusfg #C5C8C6
-set $ws_active_border #444649
-set $ws_active_bg #36383B
-set $ws_active_fg #C5C8C6
+set $ws_border #444649
+set $ws_focus_bg #36383B
+set $ws_focus_fg #C5C8C6
 
 new_window pixel 1
 new_float pixel 1
@@ -30,7 +30,7 @@ font pango:Source Code Pro 10
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
 
-client.focused $ws_active_border $ws_active_bg $ws_active_fg #EE801B
+client.focused $ws_border $ws_focus_bg $ws_focus_fg #EE801B
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -167,25 +167,26 @@ bar {
                 background $statusbg
                 statusline $statusfg
                 separator $statusfg
-                focused_workspace $ws_active_border $ws_active_bg $ws_active_fg
+                focused_workspace $ws_border $ws_focus_bg $ws_focus_fg
         }
 }
 
-set $i3exit /home/chris/bin/i3exit
+set $syspower "(l)ock lo(g)out (s)leep (h)ibernate (r)estart shut(d)own"
+set $i3exit $HOME/bin/i3exit
 
-mode "(l)ock lo(g)out (s)leep (h)ibernate (r)estart shut(d)own" {
-     bindsym l exec --no-startup-id $i3exit lock; mode "default"
-     bindsym g exec --no-startup-id $i3exit logout; mode "default"
-     bindsym s exec --no-startup-id $i3exit suspend; mode "default"
-     bindsym h exec --no-startup-id $i3exit hibernate; mode "default"
-     bindsym r exec --no-startup-id $i3exit restart; mode "default"
-     bindsym d exec --no-startup-id $i3exit shutdown; mode "default"
+mode $syspower {
+     bindsym l exec --no-startup-id "$i3exit lock"; mode "default"
+     bindsym g exec --no-startup-id "$i3exit logout"; mode "default"
+     bindsym s exec --no-startup-id "$i3exit suspend"; mode "default"
+     bindsym h exec --no-startup-id "$i3exit hibernate"; mode "default"
+     bindsym r exec --no-startup-id "$i3exit restart"; mode "default"
+     bindsym d exec --no-startup-id "$i3exit shutdown"; mode "default"
 
      bindsym Return mode "default"
      bindsym Escape mode "default"
 }
 
-bindsym $mod+n mode "(l)ock lo(g)out (s)leep (h)ibernate (r)estart shut(d)own"
+bindsym $mod+n mode $syspower
 
 exec --no-startup-id light-locker &
 
@@ -205,14 +206,17 @@ exec --no-startup-id nm-applet
 bindsym $mod+c exec chromium
 bindsym $mod+e exec emacs
 
-mode "pianobar - (p)lay/pause (q)uit (n)ext" {
+set $pianobar "pianobar - (p)lay/pause (q)uit (n)ext vol (u)p vol (d)own"
+
+mode $pianobar {
      bindsym p exec --no-startup-id sh -c "echo 'p' > $HOME/.config/pianobar/ctl"
      bindsym q exec --no-startup-id sh -c "echo 'q' > $HOME/.config/pianobar/ctl"; mode "default"
      bindsym n exec --no-startup-id sh -c "echo 'n' > $HOME/.config/pianobar/ctl"
+     bindsym u exec --no-startup-id sh -c "echo ')' > $HOME/.config/pianobar/ctl"
+     bindsym d exec --no-startup-id sh -c "echo '(' > $HOME/.config/pianobar/ctl"
 
      bindsym Return mode "default"
      bindsym Escape mode "default"
 }
 
-bindsym $mod+p mode "pianobar - (p)lay/pause (q)uit (n)ext"
-bindsym $mod+Shift+p exec pianobar
+bindsym $mod+p mode $pianobar

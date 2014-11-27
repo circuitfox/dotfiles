@@ -13,7 +13,9 @@ cd $DIR
 
 # symlink all the dotfiles
 for file in $FILES; do
-    mv "$HOME/$file" $OLDDIR
+    if [ -f $file ]; then
+        mv "$HOME/$file" $OLDDIR
+    fi
     ln -s $DIR/$file "$HOME/$file"
 done
 
