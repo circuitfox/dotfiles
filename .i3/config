@@ -168,6 +168,9 @@ bar {
                 statusline $statusfg
                 separator $statusfg
                 focused_workspace $ws_border $ws_focus_bg $ws_focus_fg
+                active_workspace $ws_border $statusbg #FFFFFF
+                inactive_workspace $ws_border $statusbg $statusfg
+                urgent_workspace $ws_border #BD442c #FFFFFF
         }
 }
 
