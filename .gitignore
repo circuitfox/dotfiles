@@ -1,6 +1,6 @@
 .oh-my-zsh/
-.emacs.d/elpa
-.emacs.d/ac-comphist.dat
-.emacs.d/auto-save-list
+.emacs.d/*
+!.emacs.d/init.el
+!.emacs.d/theme
 .irssi/sasl.auth
 .i3/conkyrc.local

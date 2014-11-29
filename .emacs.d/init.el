@@ -22,7 +22,7 @@
 (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
 
 (require 'package)
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 
 (package-initialize)
 (when (not package-archive-contents)
@@ -38,9 +38,12 @@ Usage: (package-require 'package)"
       (require package)
     (error (package-install package))))
 
+(package-require 'color-identifiers-mode)
+(package-require 'company)
 (package-require 'flycheck)
-(package-require 'magit)
+(package-require 'ggtags)
 (package-require 'haskell-mode)
+(package-require 'magit)
 (package-require 'markdown-mode)
 (package-require 'org)
 
@@ -91,14 +94,22 @@ Usage: (package-require 'package)"
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (setq flycheck-highlighting-mode 'lines)
 
+(add-hook 'after-init-hook 'global-company-mode)
+
+(add-hook 'after-init-hook 'global-color-identifiers-mode)
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq require-final-newline t)
 
-;; c/c++/java/* features
+;; c/c++/java indenting
 (setq c-default-style "k&r"
       c-basic-offset 4)
-(add-hook 'c-mode-common-hook '(lambda ()
-  (local-set-ket (kbd "RET") 'newline-and-indent)))
+(add-hook 'c-mode-common-hook
+          '(lambda ()
+             (local-set-ket (kbd "RET") 'newline-and-indent)
+             (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+               (ggtags-mode 1))))
 
+;; haskell
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc)
