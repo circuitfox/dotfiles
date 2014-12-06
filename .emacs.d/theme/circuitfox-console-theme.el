@@ -48,6 +48,7 @@
       (func    "#00cd00")
       (str     "#cd0000")
       (type    "#cdcd00")
+      (btype   "#ffff00")
       (var     "#0000cd")
       (warning "#ff0000"))
   (custom-theme-set-faces
@@ -168,7 +169,17 @@
    `(flycheck-info ((,class (:foreground ,bg1 :background ,var :underline nil))))
    `(flycheck-fringe-error ((,class (:foreground ,bg1 :background ,str :bold t))))
    `(flycheck-fringe-warning ((,class (:foreground ,bg1 :background ,type :bold t))))
-   `(flycheck-fringe-info ((,class (:foreground ,bg1 :background ,var :bold t))))))
+   `(flycheck-fringe-info ((,class (:foreground ,bg1 :background ,var :bold t))))
+   `(company-preview ((,class (:foreground ,btype :background ,bg2 :bold t))))
+   `(company-preview-common ((,class (:inherit company-preview))))
+   `(company-tooltip ((,class (:foreground ,type :background ,bg2))))
+   `(company-tooltip-selection ((,class (:foreground ,btype :background ,bg3))))
+   `(company-tooltip-common ((((type x)) (:inherit company-tooltip :weight bold))
+                             (t (:inherit company-tooltip))))
+   `(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold))
+                                       (t (:inherit company-tooltip-selection))))
+   `(company-scrollbar-fg ((,class (:background ,type))))
+   `(company-scrollbar-bg ((,class (:background ,bg4))))))
 
 ;;;###autoload
 (when load-file-name

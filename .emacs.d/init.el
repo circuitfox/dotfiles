@@ -38,14 +38,19 @@ Usage: (package-require 'package)"
       (require package)
     (error (package-install package))))
 
+(package-require 'cc-mode)
 (package-require 'color-identifiers-mode)
 (package-require 'company)
-(package-require 'flycheck)
+(package-require 'company-c-headers)
+;;(package-require 'flycheck)
+(package-require 'function-args)
 (package-require 'ggtags)
 (package-require 'haskell-mode)
 (package-require 'magit)
 (package-require 'markdown-mode)
 (package-require 'org)
+(package-require 'projectile)
+(package-require 'semantic)
 
 ;; turn off the ugly icon bar
 (tool-bar-mode 0)
@@ -80,6 +85,10 @@ Usage: (package-require 'package)"
 (setq ido-everywhere t)
 (ido-mode 1)
 
+(global-semanticdb-minor-mode 1)
+(global-semantic-idle-scheduler-mode 1)
+(semantic-mode 1)
+
 ;; org-mode shortcuts
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
@@ -91,14 +100,15 @@ Usage: (package-require 'package)"
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(setq flycheck-highlighting-mode 'lines)
+;;(add-hook 'after-init-hook #'global-flycheck-mode)
+;;(setq flycheck-highlighting-mode 'lines)
 
 (add-hook 'after-init-hook 'global-company-mode)
+(add-to-list 'company-backend 'company-c-headers)
 
 (add-hook 'after-init-hook 'global-color-identifiers-mode)
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 (setq require-final-newline t)
 
 ;; c/c++/java indenting
@@ -110,6 +120,29 @@ Usage: (package-require 'package)"
              (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
                (ggtags-mode 1))))
 
+(define-key ggtags-mode-map (kbd "C-c g s") 'ggtags-find-other-symbol)
+(define-key ggtags-mode-map (kbd "C-c g h") 'ggtags-view-tag-history)
+(define-key ggtags-mode-map (kbd "C-c g r") 'ggtags-find-reference)
+(define-key ggtags-mode-map (kbd "C-c g f") 'ggtags-find-file)
+(define-key ggtags-mode-map (kbd "C-c g c") 'ggtags-create-tags)
+(define-key ggtags-mode-map (kbd "C-c g u") 'ggtags-update-tags)
+
+(define-key ggtags-mode-map (kbd "M-,") 'pop-tag-mark)
+
+(semantic-add-system-include "usr/lib/boost" 'c++-mode)
+
+(fa-config-default)
+(define-key c-mode-map [(control tab)] 'moo-complete)
+(define-key c++-mode-map [(control tab)] 'moo-complete)
+(define-key c-mode-map (kbd "M-o") 'fa-show)
+(define-key c++-mode-map (kbd "M-o") 'fa-show)
+
 ;; haskell
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc)
+
+;; genie hook
+(add-hook 'auto-mode-alist
+          '("\\.gs\\'" . (lambda ()
+                          (remove-hook 'before-save-hook 'delete-trailing-whitespace)
+                          (fundamental-mode t))))
