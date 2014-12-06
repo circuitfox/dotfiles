@@ -280,6 +280,6 @@ settings = {
     nick = "circuitfox";
   };
   "fe-text" = { actlist_sort = "refnum"; term_force_colors = "yes"; };
-  "fe-common/core" = { theme = "custom"; };
+  "fe-common/core" = { theme = "custom"; term_charset = "utf-8"; };
 };
 ignores = ( { level = "JOINS PARTS QUITS"; } );
