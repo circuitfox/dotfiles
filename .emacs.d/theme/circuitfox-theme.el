@@ -29,7 +29,6 @@
 ;;; Code:
 
 (deftheme circuitfox)
-
 (let ((class '((class color) (min-colors 89)))
       (fg1 "#c5c8c6")
       (fg2 "#b4b6b4")
@@ -179,7 +178,10 @@
    `(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold))
                                        ((,class (:inherit company-tooltip-selection)))))
    `(company-scrollbar-fg ((,class (:background ,btype))))
-   `(company-scrollbar-bg ((,class (:background ,bg4))))))
+   `(company-scrollbar-bg ((,class (:background ,bg4))))
+   `(diff-header-face ((,class (:foreground ,const))))
+   `(diff-removed-face ((,class (:foreground ,str))))
+   `(diff-added-face ((,class (:foreground ,func))))))
 
 ;;;###autoload
 (when load-file-name

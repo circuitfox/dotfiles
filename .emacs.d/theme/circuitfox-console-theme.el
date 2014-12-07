@@ -179,7 +179,10 @@
    `(company-tooltip-common-selection ((((type x)) (:inherit company-tooltip-selection :weight bold))
                                        (t (:inherit company-tooltip-selection))))
    `(company-scrollbar-fg ((,class (:background ,type))))
-   `(company-scrollbar-bg ((,class (:background ,bg4))))))
+   `(company-scrollbar-bg ((,class (:background ,bg4))))
+   `(diff-header-face ((,class (:foreground ,const))))
+   `(diff-removed-face ((,class (:foreground ,str))))
+   `(diff-added-face ((,class (:foreground ,func))))))
 
 ;;;###autoload
 (when load-file-name
