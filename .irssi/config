@@ -283,3 +283,40 @@ settings = {
   "fe-common/core" = { theme = "custom"; term_charset = "utf-8"; };
 };
 ignores = ( { level = "JOINS PARTS QUITS"; } );
+windows = {
+  1 = {
+    immortal = "yes";
+    name = "(status)";
+    level = "ALL";
+    sticky = "yes";
+    parent = "2";
+  };
+  2 = {
+    items = (
+      {
+        type = "CHANNEL";
+        chat_type = "IRC";
+        name = "#CopyleftGames";
+        tag = "freenode";
+      }
+    );
+    sticky = "yes";
+  };
+  3 = {
+    items = (
+      {
+        type = "QUERY";
+        chat_type = "IRC";
+        name = "NickServ";
+        tag = "freenode";
+      }
+    );
+    sticky = "yes";
+    parent = "2";
+  };
+  4 = { name = "hilight"; sticky = "yes"; };
+};
+mainwindows = {
+  2 = { first_line = "8"; lines = "49"; };
+  4 = { first_line = "1"; lines = "7"; };
+};
