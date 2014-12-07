@@ -223,3 +223,15 @@ mode $pianobar {
 }
 
 bindsym $mod+p mode $pianobar
+
+set $scratchpad "scratchpad - (t)oggle (s)et-focus"
+
+mode $scratchpad {
+     bindsym t scratchpad show; mode "default"
+     bindsym s move scratchpad; scratchpad show; mode "default"
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+
+bindsym $mod+z mode $scratchpad
