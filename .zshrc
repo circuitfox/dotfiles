@@ -56,7 +56,10 @@ source $ZSH/oh-my-zsh.sh
 
 source $ZSH_CUSTOM/aliases.sh
 
-export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.cabal/bin"
+export ANDROID_HOME="$HOME/android/android-sdk-linux"
+export ANDROID_NDK="$HOME/android/android-ndk-r10d"
+
+export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.cabal/bin:$ANDROID_HOME/tools:$ANDROID_NDK_HOME"
 
 # add cross-compiler path
 #export PATH="$PATH:$HOME/opt/cross/bin"
@@ -79,4 +82,4 @@ export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export EDITOR="emacs -nw"
+export EDITOR="vim"
