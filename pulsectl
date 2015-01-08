@@ -1,0 +1,19 @@
+#!/bin/sh
+
+PACIDX=$(pacmd list-sinks | grep -e '\* index:' | awk '{print $3}')
+
+case $1 in
+    'u') pactl set-sink-volume $PACIDX -- +5%  ;;
+    'U') pactl set-sink-volume $PACIDX -- +10% ;;
+    'd') pactl set-sink-volume $PACIDX -- -5%  ;;
+    'D') pactl set-sink-volume $PACIDX -- -10% ;;
+    *)
+        echo 'USAGE: pulsectl.sh [cmd]'
+        echo '  u   increase volume of current sink by 5%'
+        echo '  U   increase volume of current sink by 10%'
+        echo '  d   decrease volume of current sink by 5%'
+        echo '  D   decrease volume of current sink by 10%'
+    ;;
+esac
+
+exit 0
