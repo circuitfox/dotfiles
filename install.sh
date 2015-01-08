@@ -3,7 +3,7 @@
 OLDPWD=$(pwd)
 DIR="$HOME/dotfiles"
 OLDDIR="$HOME/dotfiles.old"
-FILES=".emacs.d .i3 .Xresources .zsh_custom .zshrc .oh-my-zsh .irssi" # files and folders to symlink as dotfiles
+FILES=".emacs.d .i3 .Xresources .zsh_custom .zshrc .oh-my-zsh .irssi .vimrc .vim" # files and folders to symlink as dotfiles
 BINFILES="i3bar-conky pulsectl" # files and folders to sylink to ~/bin
 
 echo "Creating backup dir: $OLDDIR"
@@ -25,6 +25,11 @@ for file in $BINFILES; do
     ln -s $DIR/$file "$HOME/bin/$file"
 done
 
+# remove directory if it is empty
+if [ -z $(ls "$OLDDIR/*") ]; then
+    rm $OLDDIR
+fi
+
 # installs oh-my-zsh and sets zsh as the default shell
 install_oh_my_zsh() {
     if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
@@ -36,7 +41,7 @@ install_oh_my_zsh() {
         fi
     else
         echo "Please install zsh, then run this script again."
-        exit
+        exit 1
     fi
 }
 
