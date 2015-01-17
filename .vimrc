@@ -14,6 +14,10 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jceb/vim-orgmode'
+Plugin 'dag/vim2hs'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-bufferline'
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 
@@ -26,6 +30,9 @@ set hlsearch
 set laststatus=2
 set shiftwidth=4
 set softtabstop=4
+set noshowmode
+
+let mapleader = ';'
 
 filetype plugin indent on
 colorscheme circuitfox
@@ -33,14 +40,29 @@ colorscheme circuitfox
 " html should indent on twos
 au FileType html setl sw=2 sts=2 et
 
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+
 " Lightline
+
 let g:lightline = {
     \ 'colorscheme': 'circuitfox',
+    \ 'active': {
+    \   'left': [ [ 'mode' ],
+    \             [ 'fugitive', 'readonly', 'filename', 'modified' ],
+    \             [ 'bufferline' ] ]
+    \ },
     \ 'component_function': {
+    \   'fugitive': 'LLFugitive',
     \   'readonly': 'LLReadOnly',
-    \   'mode': 'LLMode'
+    \   'mode': 'LLMode',
+    \   'bufferline': 'LLBufferline'
     \ }
     \ }
+
+function! LLFugitive()
+    return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
 
 function! LLMode()
     return lightline#mode() == 'NORMAL' ? 'NORM' :
@@ -61,22 +83,26 @@ function! LLReadOnly()
     endif
 endfunction
 
+function! LLBufferline()
+    call bufferline#refresh_status()
+    let b = g:bufferline_status_info.before
+    let c = g:bufferline_status_info.current
+    let a = g:bufferline_status_info.after
+    return b . c . a
+endfunction
+
 " ctrlp
 let g:ctrlp_map = '<C-P>'
 
-" Theme Debugging {
-"    " adds to statusline
-"    set laststatus=2
-"    set statusline+=%{synIDattr(synID(line('.'),col('.'),1),'name')} " "    " a little more informative version of the above
-"    nmap <C-S-P> :call <SID>SynStack()<CR>
-"
-"    function! <SID>SynStack()
-"        if !exists("*synstack")
-"            return
-"        endif
-"        echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-"    endfunc
-" }
+" ycm
+let g:ycm_error_symbol = '!'
+let g:ycm_warning_symbol = '?'
+
+" bufferline
+let g:bufferline_active_buffer_left = ''
+let g:bufferline_active_buffer_right = ''
+let g:bufferline_show_bufnr = 0
+let g:bufferline_rotate = 1
 
 if filereadable('.vim.custom')
     so .vim.custom
