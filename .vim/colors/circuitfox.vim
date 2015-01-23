@@ -47,3 +47,6 @@ hi YcmErrorLine ctermbg=black
 hi link YcmWarningLine YcmErrorLine
 
 hi SignColumn ctermbg=NONE
+
+" vim2hs
+hi Conceal ctermfg=Yellow ctermbg=NONE cterm=ITALIC
