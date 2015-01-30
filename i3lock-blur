@@ -1,0 +1,4 @@
+#!/bin/sh
+scrot /tmp/screen.png
+convert /tmp/screen.png -blur 0x5 /tmp/screenblur.png
+i3lock -i /tmp/screenblur.png
