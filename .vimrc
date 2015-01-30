@@ -15,9 +15,14 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jceb/vim-orgmode'
 Plugin 'dag/vim2hs'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe' " Requires companion lib
 Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-fugitive'
+" neco-ghc and ghcmod-vim on ghc-mod,
+" which breaks projects with cabal >= 1.22
+Plugin 'eagletmt/neco-ghc'
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'Shougo/vimproc.vim' " Requires companion lib
 
 call vundle#end()
 
@@ -97,6 +102,7 @@ let g:ctrlp_map = '<C-P>'
 " ycm
 let g:ycm_error_symbol = '!'
 let g:ycm_warning_symbol = '?'
+let g:ycm_semantic_triggers = {'haskell' : ['.']}
 
 " bufferline
 let g:bufferline_active_buffer_left = ''
