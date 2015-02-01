@@ -9,6 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# vim: ft=i3
+
 set $mod Mod4
 
 set $statusbg #1E1F20

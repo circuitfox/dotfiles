@@ -23,6 +23,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'eagletmt/neco-ghc'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim' " Requires companion lib
+Plugin 'PotatoesMaster/i3-vim-syntax'
 
 call vundle#end()
 
