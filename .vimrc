@@ -43,8 +43,8 @@ let mapleader = ';'
 filetype plugin indent on
 colorscheme circuitfox
 
-" html should indent on twos
-au FileType html setl sw=2 sts=2 et
+" *.md means markdown
+au Bufread,BufNewFile *.md set ft=markdown
 
 nnoremap <Leader>bd :bd<CR>
 nnoremap <Leader>bp :bp<CR>
