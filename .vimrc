@@ -46,8 +46,9 @@ colorscheme circuitfox
 " html should indent on twos
 au FileType html setl sw=2 sts=2 et
 
-nnoremap <Leader>b :bp<CR>
-nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>bp :bp<CR>
+nnoremap <Leader>bn :bn<CR>
 
 " Lightline
 
@@ -110,6 +111,43 @@ let g:bufferline_active_buffer_left = ''
 let g:bufferline_active_buffer_right = ''
 let g:bufferline_show_bufnr = 0
 let g:bufferline_rotate = 1
+
+" Creates a new window if it does not exist
+" or else moves to the window specified by `key'
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec 'wincmd ' . a:key
+    if (t:curwin == winnr())
+        if (match(a:key, '[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec 'wincmd ' . a:key
+    endif
+endfunction
+
+" Move between windows
+map <leader>h :call WinMove('h')<CR>
+map <leader>j :call WinMove('j')<CR>
+map <leader>k :call WinMove('k')<CR>
+map <leader>l :call WinMove('l')<CR>
+
+" Move windows around
+map <leader>H :wincmd H<CR>
+map <leader>J :wincmd J<CR>
+map <leader>K :wincmd K<CR>
+map <leader>L :wincmd L<CR>
+
+" Resize window
+map <leader>rh :3wincmd <<CR>
+map <leader>rj :3wincmd -<CR>
+map <leader>rk :3wincmd +<CR>
+map <leader>rl :3wincmd ><CR>
+
+" Close / Rotate windows
+map <leader>wc :wincmd q<CR>
+map <leader>wr <C-W>r
 
 if filereadable('.vim.custom')
     so .vim.custom
