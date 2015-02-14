@@ -137,26 +137,26 @@ bindsym $mod+Shift+e exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -164,32 +164,32 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        position top
-        status_command "$HOME/bin/i3bar-conky"
-        colors {
-                background $statusbg
-                statusline $statusfg
-                separator $statusfg
-                focused_workspace $ws_border $ws_focus_bg $ws_focus_fg
-                active_workspace $ws_border $statusbg #FFFFFF
-                inactive_workspace $ws_border $statusbg $statusfg
-                urgent_workspace $ws_border #BD442c #FFFFFF
-        }
+    position top
+    status_command "$HOME/bin/i3bar-conky"
+    colors {
+        background $statusbg
+        statusline $statusfg
+        separator $statusfg
+        focused_workspace $ws_border $ws_focus_bg $ws_focus_fg
+        active_workspace $ws_border $statusbg #FFFFFF
+        inactive_workspace $ws_border $statusbg $statusfg
+        urgent_workspace $ws_border #BD442c #FFFFFF
+    }
 }
 
 set $syspower "(l)ock lo(g)out (s)leep (h)ibernate (r)estart shut(d)own"
 set $i3exit $HOME/bin/i3exit
 
 mode $syspower {
-     bindsym l exec --no-startup-id "$i3exit lock"; mode "default"
-     bindsym g exec --no-startup-id "$i3exit logout"; mode "default"
-     bindsym s exec --no-startup-id "$i3exit suspend"; mode "default"
-     bindsym h exec --no-startup-id "$i3exit hibernate"; mode "default"
-     bindsym r exec --no-startup-id "$i3exit restart"; mode "default"
-     bindsym d exec --no-startup-id "$i3exit shutdown"; mode "default"
+    bindsym l exec --no-startup-id "$i3exit lock"; mode "default"
+    bindsym g exec --no-startup-id "$i3exit logout"; mode "default"
+    bindsym s exec --no-startup-id "$i3exit suspend"; mode "default"
+    bindsym h exec --no-startup-id "$i3exit hibernate"; mode "default"
+    bindsym r exec --no-startup-id "$i3exit restart"; mode "default"
+    bindsym d exec --no-startup-id "$i3exit shutdown"; mode "default"
 
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+n mode $syspower
@@ -213,14 +213,14 @@ bindsym $mod+e exec emacs
 set $pianobar "pianobar - (p)lay/pause (q)uit (n)ext vol (u)p vol (d)own"
 
 mode $pianobar {
-     bindsym p exec --no-startup-id sh -c "echo 'p' > $HOME/.config/pianobar/ctl"
-     bindsym q exec --no-startup-id sh -c "echo 'q' > $HOME/.config/pianobar/ctl"; mode "default"
-     bindsym n exec --no-startup-id sh -c "echo 'n' > $HOME/.config/pianobar/ctl"
-     bindsym u exec --no-startup-id sh -c "echo ')' > $HOME/.config/pianobar/ctl"
-     bindsym d exec --no-startup-id sh -c "echo '(' > $HOME/.config/pianobar/ctl"
+    bindsym p exec --no-startup-id sh -c "echo 'p' > $HOME/.config/pianobar/ctl"
+    bindsym q exec --no-startup-id sh -c "echo 'q' > $HOME/.config/pianobar/ctl"; mode "default"
+    bindsym n exec --no-startup-id sh -c "echo 'n' > $HOME/.config/pianobar/ctl"
+    bindsym u exec --no-startup-id sh -c "echo ')' > $HOME/.config/pianobar/ctl"
+    bindsym d exec --no-startup-id sh -c "echo '(' > $HOME/.config/pianobar/ctl"
 
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+p mode $pianobar
@@ -228,25 +228,39 @@ bindsym $mod+p mode $pianobar
 set $scratchpad "scratchpad - (t)oggle (s)et-focus"
 
 mode $scratchpad {
-     bindsym t scratchpad show; mode "default"
-     bindsym s move scratchpad; scratchpad show; mode "default"
+    bindsym t scratchpad show; mode "default"
+    bindsym s move scratchpad; scratchpad show; mode "default"
 
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+z mode $scratchpad
 
-set $audio "pulseaudio - (u)p 5% (d)own 5% (U)p 10% (D)own 10%"
+set $audio "pulseaudio - (u)p 5% (d)own 5% (U)p 10% (D)own 10% (m)ute"
 
 mode $audio {
-     bindsym u exec --no-startup-id "$HOME/bin/pulsectl u"
-     bindsym d exec --no-startup-id "$HOME/bin/pulsectl d"
-     bindsym Shift+u exec --no-startup-id "$HOME/bin/pulsectl U"
-     bindsym Shift+d exec --no-startup-id "$HOME/bin/pulsectl D"
+    bindsym u exec --no-startup-id "$HOME/bin/pulsectl u"
+    bindsym d exec --no-startup-id "$HOME/bin/pulsectl d"
+    bindsym Shift+u exec --no-startup-id "$HOME/bin/pulsectl U"
+    bindsym Shift+d exec --no-startup-id "$HOME/bin/pulsectl D"
+    bindsym m exec --no-startup-id "$HOME/bin/pulsectl m"
 
-     bindsym Return mode "default"
-     bindsym Escape mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+m mode $audio
+
+set $mpc "mpc - (t)oggle (u)p 2% (d)own 2%"
+
+mode $mpc {
+    bindsym t exec --no-startup-id mpc toggle
+    bindsym u exec --no-startup-id mpc volume +2
+    bindsym d exec --no-startup-id mpc volume -2
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+o mode $mpc
