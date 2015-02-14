@@ -24,6 +24,7 @@ Plugin 'eagletmt/neco-ghc'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim' " Requires companion lib
 Plugin 'PotatoesMaster/i3-vim-syntax'
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
 
 call vundle#end()
 
