@@ -83,3 +83,4 @@ export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 export EDITOR="vim"
+export SUDO_EDITOR="vim"
