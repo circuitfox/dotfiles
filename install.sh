@@ -1,10 +1,9 @@
 #!/bin/sh
 
-OLDPWD=$(pwd)
 DIR="$HOME/dotfiles"
 OLDDIR="$HOME/dotfiles.old"
 FILES=".emacs.d .i3 .Xresources .zsh_custom .zshrc .oh-my-zsh .irssi .vimrc .vim" # files and folders to symlink as dotfiles
-BINFILES="i3bar-conky pulsectl" # files and folders to sylink to ~/bin
+BINFILES="i3bar-conky pulsectl i3lock-blur colors.sh" # files and folders to sylink to ~/bin
 
 echo "Creating backup dir: $OLDDIR"
 mkdir -p $OLDDIR
@@ -13,22 +12,25 @@ cd $DIR
 
 # symlink all the dotfiles
 for file in $FILES; do
-    if [ -f $file ]; then
-        mv "$HOME/$file" $OLDDIR
+    DESTFILE="$HOME/$file"
+    if [ -e $DESTFILE ]; then
+        mv $DESTFILE $OLDDIR
     fi
-    ln -s $DIR/$file "$HOME/$file"
+    if ! [ -h $DESTFILE ]; then
+        ln -s $DIR/$file $DESTFILE
+    fi
 done
 
 # symlink supporting scripts
 for file in $BINFILES; do
-    mv "$HOME/bin/$file" $OLDDIR
-    ln -s $DIR/$file "$HOME/bin/$file"
+    DESTFILE="$HOME/bin/$file"
+    if [ -e $DESTFILE ]; then
+        mv $DESTFILE $OLDDIR
+    fi
+    if ! [ -h $DESTFILE ]; then
+        ln -s $DIR/$file $DESTFILE
+    fi
 done
-
-# remove directory if it is empty
-if [ -z $(ls "$OLDDIR/*") ]; then
-    rm $OLDDIR
-fi
 
 # installs oh-my-zsh and sets zsh as the default shell
 install_oh_my_zsh() {
