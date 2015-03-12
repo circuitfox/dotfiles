@@ -44,6 +44,10 @@ let mapleader = ';'
 filetype plugin indent on
 colorscheme circuitfox
 
+if has('gui_running')
+    set guifont=Source\ Code\ Pro\ 10
+endif
+
 " *.md means markdown
 au Bufread,BufNewFile *.md set ft=markdown
 
