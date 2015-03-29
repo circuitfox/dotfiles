@@ -39,7 +39,7 @@ URxvt*color15:      #c5c8c6
 URxvt*scrollBar:    false
 
 ! font
-URxvt*font: xft:Source Code Pro:pixelsize=14
+URxvt*font: xft:Source Code Pro:pixelsize=14:style=medium
 
 ! cursor
 Xcursor.theme: oxy-zion

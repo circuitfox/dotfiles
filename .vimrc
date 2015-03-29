@@ -18,13 +18,15 @@ Plugin 'dag/vim2hs'
 Plugin 'Valloric/YouCompleteMe' " Requires companion lib
 Plugin 'bling/vim-bufferline'
 Plugin 'tpope/vim-fugitive'
-" neco-ghc and ghcmod-vim on ghc-mod,
+" neco-ghc and ghcmod-vim depend on ghc-mod,
 " which breaks projects with cabal >= 1.22
 Plugin 'eagletmt/neco-ghc'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim' " Requires companion lib
 Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
+Plugin 'derekwyatt/vim-scala'
+Plugin 'peterhoeg/vim-qml'
 
 call vundle#end()
 
