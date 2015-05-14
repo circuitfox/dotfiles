@@ -4,5 +4,6 @@
 !.emacs.d/theme
 .irssi/sasl.auth
 .i3/conkyrc.local
+.vim/.netrwhist
 .vim/bundle/*
 !.vim/bundle/Vundle.vim
