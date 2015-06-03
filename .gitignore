@@ -1,7 +1,4 @@
 .oh-my-zsh/
-.emacs.d/*
-!.emacs.d/init.el
-!.emacs.d/theme
 .irssi/sasl.auth
 .i3/conkyrc.local
 .vim/.netrwhist
