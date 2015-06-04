@@ -1,5 +1,4 @@
 set nocompatible
-set nu
 set background=dark
 if !has('gui')
     set term=$TERM
@@ -33,18 +32,12 @@ call vundle#end()
 syntax on
 scriptencoding utf-8
 
-set encoding=utf-8
-set expandtab
-set hlsearch
-set laststatus=2
-set shiftwidth=4
-set softtabstop=4
-set noshowmode
-
 let mapleader = ';'
 
 filetype plugin indent on
 colorscheme circuitfox
+
+set modelines=0
 
 if has('gui_running')
     set guifont=Source\ Code\ Pro\ 10
@@ -53,9 +46,63 @@ endif
 " *.md means markdown
 au Bufread,BufNewFile *.md set ft=markdown
 
-nnoremap <Leader>bd :bd<CR>
-nnoremap <Leader>bp :bp<CR>
-nnoremap <Leader>bn :bn<CR>
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+set encoding=utf-8
+set scrolloff=3
+set showcmd
+set noshowmode
+set wildmenu
+set wildmode=list:longest
+set visualbell
+set cursorline
+set ttyfast
+set ruler
+set backspace=indent,eol,start
+set laststatus=2
+set relativenumber
+
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+
+nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+set wrap
+set textwidth=79
+set formatoptions=qrn1
+set colorcolumn=85
+
+nnoremap <leader>bd :bd<cr>
+nnoremap <leader>bp :bp<cr>
+nnoremap <leader>bn :bn<cr>
+
+" hjkl for movement, and only in normal mode
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
+
+" jj and <esc> are synonyms
+inoremap jj <esc>
 
 " Creates a new window if it does not exist
 " or else moves to the window specified by `key'
@@ -73,26 +120,26 @@ function! WinMove(key)
 endfunction
 
 " Move between windows
-map <leader>h :call WinMove('h')<CR>
-map <leader>j :call WinMove('j')<CR>
-map <leader>k :call WinMove('k')<CR>
-map <leader>l :call WinMove('l')<CR>
+map <leader>h :call WinMove('h')<cr>
+map <leader>j :call WinMove('j')<cr>
+map <leader>k :call WinMove('k')<cr>
+map <leader>l :call WinMove('l')<cr>
 
 " Move windows around
-map <leader>H :wincmd H<CR>
-map <leader>J :wincmd J<CR>
-map <leader>K :wincmd K<CR>
-map <leader>L :wincmd L<CR>
+map <leader>H :wincmd H<cr>
+map <leader>J :wincmd J<cr>
+map <leader>K :wincmd K<cr>
+map <leader>L :wincmd L<cr>
 
 " Resize window
-map <leader>rh :3wincmd <<CR>
-map <leader>rj :3wincmd -<CR>
-map <leader>rk :3wincmd +<CR>
-map <leader>rl :3wincmd ><CR>
+map <leader>rh :3wincmd <<cr>
+map <leader>rj :3wincmd -<cr>
+map <leader>rk :3wincmd +<cr>
+map <leader>rl :3wincmd ><cr>
 
 " Close / Rotate windows
-map <leader>wc :wincmd q<CR>
-map <leader>wr <C-W>r
+map <leader>wc :wincmd q<cr>
+map <leader>wr <c-w>r
 
 if filereadable('.vim.custom')
     so .vim.custom

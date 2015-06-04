@@ -34,7 +34,7 @@ hi Special ctermfg=Yellow ctermbg=NONE guifg=#e0934f guibg=#1e1f20 gui=NONE
 hi Identifier ctermfg=DarkBlue ctermbg=NONE guifg=#057eda guibg=#1e1f20
 hi Statement ctermfg=LightGrey ctermbg=NONE cterm=BOLD guifg=#c5c8c6 guibg=#1e1f20 gui=BOLD
 hi PreProc ctermfg=DarkMagenta ctermbg=NONE guifg=#6d30db guibg=#1e1f20
-hi Error ctermfg=Black ctermbg=Red cterm=BOLD guifg=#2a2b2e guibg=#bd5e4b
+hi Error ctermfg=DarkGrey ctermbg=Red cterm=BOLD guifg=#65686e guibg=#bd5e4b
 hi Number ctermfg=Magenta ctermbg=NONE guifg=#8a58db guibg=#1e1f20
 hi Boolean ctermfg=DarkMagenta ctermbg=NONE guifg=#6d30db guibg=#1e1f20
 hi String ctermfg=DarkRed ctermbg=NONE guifg=#bd442c guibg=#1e1f20
@@ -46,6 +46,10 @@ hi Search ctermfg=Black ctermbg=Blue cterm=ITALIC guifg=#2a2b2e guibg=#4192d9 gu
 hi Title ctermfg=Blue ctermbg=NONE cterm=BOLD guifg=#4192d9 guibg=#1e1f20 gui=BOLD
 
 " vim
+hi ColorColumn ctermbg=Black guibg=#2a2b2e cterm=NONE
+hi CursorLine ctermbg=Black guibg=#2a2b2e cterm=NONE
+hi Folded ctermfg=Cyan ctermbg=Black cterm=ITALIC guifg=#7dd8c1 guibg=#2a2b2e gui=ITALIC
+hi VertSplit ctermfg=White ctermbg=NONE guifg=#c5c8c6 guibg=#1e1f20
 hi vimHiCtermColor ctermfg=Blue ctermbg=NONE guifg=#4192d9 guibg=#1e1f20
 hi vimGroup ctermfg=Green ctermbg=NONE cterm=ITALIC guifg=#31b577 guibg=#1e1f20 gui=ITALIC
 
