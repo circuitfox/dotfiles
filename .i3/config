@@ -11,11 +11,11 @@
 
 set $mod Mod4
 
-set $statusbg #1E1F20
-set $statusfg #C5C8C6
+set $statusbg #1e1f20
+set $statusfg #bbbebc
 set $ws_border #444649
-set $ws_focus_bg #36383B
-set $ws_focus_fg #C5C8C6
+set $ws_focus_bg #36383b
+set $ws_focus_fg #bbbebc
 
 new_window pixel 1
 new_float pixel 1
@@ -169,9 +169,9 @@ bar {
         statusline $statusfg
         separator $statusfg
         focused_workspace $ws_border $ws_focus_bg $ws_focus_fg
-        active_workspace $ws_border $statusbg #FFFFFF
+        active_workspace $ws_border $statusbg #ffffff
         inactive_workspace $ws_border $statusbg $statusfg
-        urgent_workspace $ws_border #BD442c #FFFFFF
+        urgent_workspace $ws_border #ae3f28 #ffffff
     }
 }
 

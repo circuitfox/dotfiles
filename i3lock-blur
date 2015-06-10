@@ -1,4 +1,7 @@
 #!/bin/sh
 scrot /tmp/screen.png
-convert /tmp/screen.png -blur 0x5 /tmp/screenblur.png
-i3lock -i /tmp/screenblur.png
+convert /tmp/screen.png -blur 0x3 /tmp/screenblur.png
+if pgrep pianobar > /dev/null 2>&1; then
+    echo 'p' > "$HOME/.config/pianobar/ctl"
+fi
+i3lock -u -i /tmp/screenblur.png

@@ -49,7 +49,9 @@ hi Title ctermfg=Blue ctermbg=NONE cterm=BOLD guifg=#4192d9 guibg=#1e1f20 gui=BO
 hi ColorColumn ctermbg=Black guibg=#2a2b2e cterm=NONE
 hi CursorLine ctermbg=Black guibg=#2a2b2e cterm=NONE
 hi Folded ctermfg=Cyan ctermbg=Black cterm=ITALIC guifg=#7dd8c1 guibg=#2a2b2e gui=ITALIC
-hi VertSplit ctermfg=White ctermbg=NONE guifg=#c5c8c6 guibg=#1e1f20
+hi FoldColumn ctermbg=Black cterm=ITALIc guibg=#2a2b2e gui=ITALIC
+hi VertSplit ctermfg=White ctermbg=Black cterm=NONE guifg=#2a2b2e guibg=#2a2b2e gui=NONE
+hi Visual ctermbg=7 cterm=NONE
 hi vimHiCtermColor ctermfg=Blue ctermbg=NONE guifg=#4192d9 guibg=#1e1f20
 hi vimGroup ctermfg=Green ctermbg=NONE cterm=ITALIC guifg=#31b577 guibg=#1e1f20 gui=ITALIC
 
@@ -59,8 +61,14 @@ hi PmenuSel ctermfg=DarkGrey ctermbg=Black guifg=#65686e guibg=#2a2b2e
 hi PmenuSbar ctermfg=NONE ctermbg=DarkGrey guifg=NONE guibg=#65686e
 hi PmenuThumb ctermfg=NONE ctermbg=Yellow guifg=NONE guibg=#e0934f
 
+" vimdiff
+hi DiffAdd ctermfg=Green ctermbg=DarkGreen cterm=NONE
+hi DiffChange ctermfg=DarkCyan ctermbg=DarkBlue cterm=NONE
+hi DiffDelete ctermfg=DarkRed ctermbg=DarkRed cterm=NONE
+hi DiffText ctermfg=Cyan ctermbg=Blue cterm=NONE
+
 " c
-hi cFunction ctermfg=Green ctermbg=NONE guifg=#c5c8c6 guibg=#1e1f20
+hi cFunction ctermfg=Green ctermbg=NONE guifg=#31b577 guibg=#1e1f20
 
 " ctrlp
 hi StatusLine ctermfg=White ctermbg=Black guifg=#c5c8c6 guibg=#1e1f20
@@ -74,3 +82,22 @@ hi SignColumn ctermbg=NONE guibg=NONE
 
 " vim2hs
 hi Conceal ctermfg=Yellow ctermbg=NONE cterm=ITALIC guifg=#e0934f guibg=#1e1f20 gui=ITALIC
+
+" gitgutter
+hi GitGutterAdd ctermfg=Green ctermbg=NONE cterm=NONE guifg=#31b577 guibg=NONE gui=NONE
+hi GitGutterChange ctermfg=3 ctermbg=NONE cterm=NONE guifg=#e08428 guibg=NONE gui=NONE
+hi GitGutterDelete ctermfg=Red ctermbg=NONE cterm=NONE guifg=#bd5e4b guibg=NONE gui=NONE
+hi link GitGutterChangeDelete GitGutterChange
+
+" buftabline
+hi BufTabLineCurrent ctermfg=Yellow ctermbg=8 cterm=BOLD guifg=#65686e guibg=#2a2b2e gui=BOLD
+hi BufTabLineActive ctermfg=Yellow ctermbg=Black guifg=#e0934f guibg=#2a2b2e
+hi BufTabLineHidden ctermfg=3 ctermbg=Black cterm=ITALIC guifg=#e08428 guibg=#2a2b2e gui=ITALIC
+hi BufTabLineFill ctermbg=Black guibg=#2a2b2e
+
+" signature
+" signature's default highlight group is 'Exception' -- and this cannot be
+" changed when using dynamic highlighting
+hi Exception ctermfg=Blue guifg=#4192d9
+"hi SignatureMarkHL ctermfg=Blue
+"hi SignatureMarkerHL ctermfg=Red

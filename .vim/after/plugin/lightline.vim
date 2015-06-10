@@ -9,7 +9,6 @@ let g:lightline = {
     \   'fugitive': 'LLFugitive',
     \   'readonly': 'LLReadOnly',
     \   'mode': 'LLMode',
-    \   'bufferline': 'LLBufferline'
     \ }
     \ }
 
@@ -35,12 +34,3 @@ function! LLReadOnly()
         return ''
     endif
 endfunction
-
-function! LLBufferline()
-    call bufferline#refresh_status()
-    let b = g:bufferline_status_info.before
-    let c = g:bufferline_status_info.current
-    let a = g:bufferline_status_info.after
-    return b . c . a
-endfunction
-

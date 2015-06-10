@@ -13,9 +13,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'jceb/vim-orgmode'
-Plugin 'dag/vim2hs'
+Plugin 'circuitfox/vim2hs'
 Plugin 'Valloric/YouCompleteMe' " Requires companion lib
-Plugin 'bling/vim-bufferline'
+Plugin 'ap/vim-buftabline'
 Plugin 'tpope/vim-fugitive'
 " neco-ghc and ghcmod-vim depend on ghc-mod,
 " which breaks projects with cabal >= 1.22
@@ -26,6 +26,8 @@ Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'peterhoeg/vim-qml'
+Plugin 'kshenoy/vim-signature'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -96,6 +98,10 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
+vnoremap <up> <nop>
+vnoremap <down> <nop>
+vnoremap <left> <nop>
+vnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
 
@@ -140,6 +146,20 @@ map <leader>rl :3wincmd ><cr>
 " Close / Rotate windows
 map <leader>wc :wincmd q<cr>
 map <leader>wr <c-w>r
+
+" Foldtext
+function! FoldTextFun()
+    let line = getline(v:foldstart)
+    let line_count = v:foldend - v:foldstart + 1
+    let line_dash = '-'
+    let line_count_text = '| ' . printf("%10s", line_count . ' lines') . ' |'
+    let foldtextend = line_count_text . repeat(line_dash, 2)
+    let nucolwidth = &foldcolumn + (&nu || &rnu) * &numberwidth
+    let foldtextstart = strpart(line . " ", 0, (winwidth(0) - nucolwidth - foldtextend))
+    let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + nucolwidth
+    return foldtextstart . repeat(line_dash, winwidth(0) - foldtextlength) . foldtextend
+endfunction
+set foldtext=FoldTextFun()
 
 if filereadable('.vim.custom')
     so .vim.custom
