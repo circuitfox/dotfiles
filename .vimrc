@@ -28,6 +28,7 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'peterhoeg/vim-qml'
 Plugin 'kshenoy/vim-signature'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'beyondmarc/glsl.vim'
 
 call vundle#end()
 

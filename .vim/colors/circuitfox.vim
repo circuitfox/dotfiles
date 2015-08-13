@@ -81,7 +81,7 @@ hi link YcmWarningLine YcmErrorLine
 hi SignColumn ctermbg=NONE guibg=NONE
 
 " vim2hs
-hi Conceal ctermfg=Yellow ctermbg=NONE cterm=ITALIC guifg=#e0934f guibg=#1e1f20 gui=ITALIC
+hi Conceal ctermfg=Yellow ctermbg=NONE cterm=BOLD guifg=#e0934f guibg=#1e1f20 gui=BOLD
 
 " gitgutter
 hi GitGutterAdd ctermfg=Green ctermbg=NONE cterm=NONE guifg=#31b577 guibg=NONE gui=NONE
