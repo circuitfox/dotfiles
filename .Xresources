@@ -39,7 +39,15 @@ URxvt*color15:      #bbbebc
 URxvt*scrollBar:    false
 
 ! font
-URxvt*font: xft:Source Code Pro:pixelsize=14:style=medium
+URxvt*font: xft:Source Code Pro:size=10:style=medium
+Xft.dpi: 276
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 
 ! cursor
-Xcursor.theme: oxy-zion
+Xcursor.theme: Breeze Obsidian
+Xcursor.size: 48

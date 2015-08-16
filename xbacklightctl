@@ -1,0 +1,21 @@
+#!/bin/sh
+
+case $1 in
+    'u') xbacklight -inc 5                 ;;
+    'U') xbacklight -inc 10                ;;
+    'd') xbacklight -dec 5                 ;;
+    'D') xbacklight -dec 10                ;;
+    'g') xbacklight -get | cut -d '.' -f 1 ;;
+    'b')
+        if cat "/sys/class/power_supply/AC/online" | grep 0 > /dev/null 2>&1; then
+            xbacklight -set 50
+        else
+            xbacklight -set 100
+        fi
+    ;;
+    *)
+        echo 'USAGE: xbacklightctl u|U|d|D|g|b'
+    ;;
+esac
+
+exit 0
