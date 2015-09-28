@@ -1,1 +1,1 @@
-let g:haskell_fold = 2
+let g:haskell_fold = 0

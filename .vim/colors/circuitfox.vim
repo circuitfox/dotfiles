@@ -101,3 +101,8 @@ hi BufTabLineFill ctermbg=Black guibg=#2a2b2e
 hi Exception ctermfg=Blue guifg=#4192d9
 "hi SignatureMarkHL ctermfg=Blue
 "hi SignatureMarkerHL ctermfg=Red
+
+hi SpellBad ctermfg=White ctermbg=DarkRed
+hi SpellCap ctermfg=White ctermbg=DarkBlue
+hi SpellLocal ctermfg=White ctermbg=DarkMagenta
+hi SpellRare ctermfg=White ctermbg=DarkMagenta
