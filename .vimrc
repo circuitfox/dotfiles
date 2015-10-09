@@ -30,6 +30,7 @@ Plugin 'kshenoy/vim-signature'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'beyondmarc/glsl.vim'
 Plugin 'sirtaj/vim-openscad'
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 
@@ -167,3 +168,5 @@ set foldtext=FoldTextFun()
 if filereadable('.vim.custom')
     so .vim.custom
 endif
+
+let g:user_emmet_leader_key = '<leader>'
