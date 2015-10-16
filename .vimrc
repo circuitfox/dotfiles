@@ -170,3 +170,4 @@ if filereadable('.vim.custom')
 endif
 
 let g:user_emmet_leader_key = '<leader>'
+let g:user_emmet_mode = 'nv'
