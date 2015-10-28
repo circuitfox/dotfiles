@@ -192,8 +192,6 @@ mode $syspower {
 
 bindsym $mod+n mode $syspower
 
-exec --no-startup-id light-locker &
-
 # exec --no-startup-id xsetroot --solid %statusbg
 exec --no-startup-id sh ~/.fehbg &
 
