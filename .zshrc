@@ -61,6 +61,21 @@ export ANDROID_NDK="$HOME/android/android-ndk-r10d"
 
 export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.cabal/bin:$ANDROID_HOME/tools:$ANDROID_NDK_HOME"
 
+export EDITOR="vim"
+export SUDO_EDITOR="vim"
+
+# colored man pages
+man() {
+    env LESS_TERMCAP_mb=$'\e[01;31m' \
+    LESS_TERMCAP_md=$'\e[01;34m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[0m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[04m\e[01;32m' \
+    man "$@"
+}
+
 # add cross-compiler path
 #export PATH="$PATH:$HOME/opt/cross/bin"
 
@@ -82,5 +97,3 @@ export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-export EDITOR="vim"
-export SUDO_EDITOR="vim"
