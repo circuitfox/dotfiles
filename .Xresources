@@ -39,7 +39,7 @@ URxvt*color15:      #bbbebc
 URxvt*scrollBar:    false
 
 ! font
-URxvt*font: xft:Source Code Pro:size=10:style=medium
+URxvt*font: xft:Source Code Pro:size=9:style=medium
 Xft.dpi: 276
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
