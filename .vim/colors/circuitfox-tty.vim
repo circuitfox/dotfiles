@@ -3,7 +3,7 @@ hi clear
 if exists("syntax_on")
     syntax reset
 endif
-let g:colors_name="circuitfox"
+let g:colors_name="circuitfox-tty"
 
 " Colormap
 " cterm8 cterm16 color           hex
@@ -27,78 +27,78 @@ let g:colors_name="circuitfox"
 " background: #1e1f20
 
 " generic
-hi Normal ctermfg=White ctermbg=NONE
-hi Comment ctermfg=DarkGrey ctermbg=NONE cterm=ITALIC
+hi Normal ctermfg=Grey ctermbg=NONE
+hi Comment ctermfg=DarkCyan ctermbg=NONE
 hi Constant ctermfg=DarkMagenta ctermbg=NONE
 hi Special ctermfg=Yellow ctermbg=NONE
-hi Identifier ctermfg=DarkBlue ctermbg=NONE
-hi Statement ctermfg=LightGrey ctermbg=NONE cterm=BOLD
+hi Identifier ctermfg=Blue ctermbg=NONE
+hi Statement ctermfg=White ctermbg=NONE
 hi PreProc ctermfg=DarkMagenta ctermbg=NONE
-hi Error ctermfg=DarkGrey ctermbg=Red cterm=BOLD
+hi Error ctermfg=DarkGrey ctermbg=Red
 hi Number ctermfg=Magenta ctermbg=NONE
 hi Boolean ctermfg=DarkMagenta ctermbg=NONE
 hi String ctermfg=DarkRed ctermbg=NONE
-hi Type ctermfg=3 ctermbg=NONE
-hi Function ctermfg=Green ctermbg=NONE
-hi LineNr ctermfg=DarkGrey ctermbg=NONE
+hi Type ctermfg=Brown ctermbg=NONE 
+hi Function ctermfg=DarkGreen ctermbg=NONE 
+hi LineNr ctermfg=DarkGrey ctermbg=NONE 
 hi link Operator Special
-hi Search ctermfg=Black ctermbg=Blue cterm=ITALIC
-hi Title ctermfg=Blue ctermbg=NONE cterm=BOLD
+hi Search ctermfg=Black ctermbg=Blue
+hi Title ctermfg=Blue ctermbg=NONE
 
 " vim
-hi ColorColumn ctermbg=Black cterm=NONE
-hi CursorLine ctermbg=Black cterm=NONE
-hi Folded ctermfg=Cyan ctermbg=Black cterm=ITALIC
-hi FoldColumn ctermbg=Black cterm=ITALIc
-hi VertSplit ctermfg=White ctermbg=Black cterm=NONE
-hi Visual ctermbg=7 cterm=NONE
+hi ColorColumn ctermbg=Black
+hi CursorLine ctermbg=Black
+hi Folded ctermfg=Cyan ctermbg=Black
+hi FoldColumn ctermbg=Black
+hi VertSplit ctermfg=White ctermbg=Black
+hi Visual ctermbg=7
 hi vimHiCtermColor ctermfg=Blue ctermbg=NONE
-hi vimGroup ctermfg=Green ctermbg=NONE cterm=ITALIC
+hi vimGroup ctermfg=DarkGreen ctermbg=NONE
 
 " completion menu
-hi Pmenu ctermfg=Yellow ctermbg=Black
+hi Pmenu ctermfg=Brown ctermbg=Black
 hi PmenuSel ctermfg=DarkGrey ctermbg=Black
 hi PmenuSbar ctermfg=NONE ctermbg=DarkGrey
-hi PmenuThumb ctermfg=NONE ctermbg=Yellow
+hi PmenuThumb ctermfg=NONE ctermbg=Brown
 
 " vimdiff
-hi DiffAdd ctermfg=Green ctermbg=DarkGreen cterm=NONE
-hi DiffChange ctermfg=DarkCyan ctermbg=DarkBlue cterm=NONE
-hi DiffDelete ctermfg=DarkRed ctermbg=DarkRed cterm=NONE
-hi DiffText ctermfg=Cyan ctermbg=Blue cterm=NONE
+hi DiffAdd ctermfg=Green ctermbg=DarkGreen
+hi DiffChange ctermfg=DarkCyan ctermbg=DarkBlue
+hi DiffDelete ctermfg=DarkRed ctermbg=DarkRed
+hi DiffText ctermfg=Cyan ctermbg=Blue
 
 " c
 hi cFunction ctermfg=Green ctermbg=NONE
 
 " ctrlp
-hi StatusLine ctermfg=White ctermbg=Black
+hi StatusLine ctermfg=White ctermbg=Black guifg=#c5c8c6 guibg=#1e1f20
 
 " ycm
-hi YcmWarningSign ctermfg=Black ctermbg=3 cterm=BOLD
+hi YcmWarningSign ctermfg=Black ctermbg=3
 hi YcmErrorLine ctermbg=Black
 hi link YcmWarningLine YcmErrorLine
 
-hi SignColumn ctermbg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
 
 " vim2hs
-hi Conceal ctermfg=Yellow ctermbg=NONE cterm=BOLD
+hi Conceal ctermfg=Yellow ctermbg=NONE
 
 " gitgutter
-hi GitGutterAdd ctermfg=Green ctermbg=NONE cterm=NONE
-hi GitGutterChange ctermfg=3 ctermbg=NONE cterm=NONE
-hi GitGutterDelete ctermfg=Red ctermbg=NONE cterm=NONE
+hi GitGutterAdd ctermfg=Green ctermbg=NONE
+hi GitGutterChange ctermfg=3 ctermbg=NONE
+hi GitGutterDelete ctermfg=Red ctermbg=NONE
 hi link GitGutterChangeDelete GitGutterChange
 
 " buftabline
-hi BufTabLineCurrent ctermfg=Yellow ctermbg=8 cterm=BOLD
-hi BufTabLineActive ctermfg=Yellow ctermbg=Black
-hi BufTabLineHidden ctermfg=3 ctermbg=Black cterm=ITALIC
+hi BufTabLineCurrent ctermfg=Brown ctermbg=8
+hi BufTabLineActive ctermfg=Brown ctermbg=Black
+hi BufTabLineHidden ctermfg=Brown ctermbg=Black
 hi BufTabLineFill ctermbg=Black
 
 " signature
 " signature's default highlight group is 'Exception' -- and this cannot be
 " changed when using dynamic highlighting
-hi Exception ctermfg=Blue
+hi Exception ctermfg=Blue guifg=#4192d9
 "hi SignatureMarkHL ctermfg=Blue
 "hi SignatureMarkerHL ctermfg=Red
 

@@ -40,7 +40,11 @@ scriptencoding utf-8
 let mapleader = ';'
 
 filetype plugin indent on
-colorscheme circuitfox
+if &term =~ "linux"
+    colorscheme circuitfox-tty
+else
+    colorscheme circuitfox
+endif
 
 set modelines=0
 
