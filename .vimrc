@@ -31,6 +31,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'beyondmarc/glsl.vim'
 Plugin 'sirtaj/vim-openscad'
 Plugin 'mattn/emmet-vim'
+Plugin 'jelera/vim-javascript-syntax'
 
 call vundle#end()
 
