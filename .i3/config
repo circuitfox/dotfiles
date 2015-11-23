@@ -277,3 +277,16 @@ mode $backlight {
 }
 
 bindsym $mod+x mode $backlight
+
+set $spotify "spotify - (p)lay/pause (n)ext (s)top"
+
+mode $spotify {
+    bindsym p exec --no-startup-id "$HOME/bin/spotifyctl p"
+    bindsym n exec --no-startup-id "$HOME/bin/spotifyctl n"
+    bindsym s exec --no-startup-id "$HOME/bin/spotifyctl s"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+s mode $spotify

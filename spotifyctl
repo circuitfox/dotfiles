@@ -1,0 +1,19 @@
+#!/bin/sh
+case $1 in
+    "p")
+
+        # Play/Pause
+        dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+    ;;
+    "n")
+        # Next
+        dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+    ;;
+    "s")
+    # Stop
+    dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+    ;;
+    *)
+        echo "USAGE: spotifyctl [p|n|s]"
+    ;;
+esac
