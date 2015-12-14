@@ -45,6 +45,18 @@ hi link Operator Special
 hi Search ctermfg=Black ctermbg=Blue cterm=ITALIC
 hi Title ctermfg=Blue ctermbg=NONE cterm=BOLD
 
+" color_coded
+hi Member ctermfg=DarkGreen ctermbg=NONE
+hi Variable ctermfg=DarkCyan ctermbg=NONE
+hi Namespace ctermfg=DarkBlue ctermbg=NONE
+hi EnumConstant ctermfg=DarkRed ctermbg=NONE
+hi StructDecl ctermfg=Blue ctermbg=NONE
+hi UnionDecl ctermfg=Blue ctermbg=NONE
+hi ClassDecl ctermfg=Blue ctermbg=NONE
+hi EnumDecl ctermfg=Blue ctermbg=NONE
+hi ParmDecl ctermfg=Cyan ctermbg=NONE
+hi TypeRef ctermfg=DarkBlue ctermbg=NONE
+
 " vim
 hi ColorColumn ctermbg=Black cterm=NONE
 hi CursorLine ctermbg=Black cterm=NONE

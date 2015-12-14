@@ -32,6 +32,9 @@ Plugin 'beyondmarc/glsl.vim'
 Plugin 'sirtaj/vim-openscad'
 Plugin 'mattn/emmet-vim'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jeaye/color_coded' " Requires companion lib
+Plugin 'cespare/vim-toml'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 
