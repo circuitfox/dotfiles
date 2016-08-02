@@ -196,7 +196,8 @@ bindsym $mod+n mode $syspower
 exec --no-startup-id sh ~/.fehbg &
 
 # float popups
-for_window [window_role="pop-up"] floating enable, move absolute center
+for_window [window_role="pop-up"] floating enable, move center
+for_window [title="^(?i)Helm$"] floating enable, border normal
 
 # border shortcuts
 bindsym $mod+t border normal
@@ -248,18 +249,31 @@ mode $audio {
 
 bindsym $mod+m mode $audio
 
-set $mpc "mpc - (t)oggle (u)p 2% (d)own 2%"
+#set $mpc "mpc - (t)oggle (u)p 2% (d)own 2%"
+#
+#mode $mpc {
+#    bindsym t exec --no-startup-id mpc toggle
+#    bindsym u exec --no-startup-id mpc volume +2
+#    bindsym d exec --no-startup-id mpc volume -2
+#
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#
+#bindsym $mod+o mode $mpc
 
-mode $mpc {
-    bindsym t exec --no-startup-id mpc toggle
-    bindsym u exec --no-startup-id mpc volume +2
-    bindsym d exec --no-startup-id mpc volume -2
+set $mopidy "mopidy - (p)lay/pause (n)ext (s)top"
+
+mode $mopidy {
+    bindsym p exec --no-startup-id "$HOME/bin/mopidyctl p"
+    bindsym n exec --no-startup-id "$HOME/bin/mopidyctl n"
+    bindsym s exec --no-startup-id "$HOME/bin/mopidyctl s"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
-bindsym $mod+o mode $mpc
+bindsym $mod+o mode $mopidy
 
 set $spotify "spotify - (p)lay/pause (n)ext (s)top"
 
@@ -273,3 +287,5 @@ mode $spotify {
 }
 
 bindsym $mod+s mode $spotify
+
+exec --no-startup-id "$HOME/bin/audio-tools.sh"
