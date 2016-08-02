@@ -17,8 +17,6 @@ Plugin 'circuitfox/vim2hs'
 Plugin 'Valloric/YouCompleteMe' " Requires companion lib
 Plugin 'ap/vim-buftabline'
 Plugin 'tpope/vim-fugitive'
-" neco-ghc and ghcmod-vim depend on ghc-mod,
-" which breaks projects with cabal >= 1.22
 Plugin 'eagletmt/neco-ghc'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'Shougo/vimproc.vim' " Requires companion lib
