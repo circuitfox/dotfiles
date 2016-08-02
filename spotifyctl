@@ -20,31 +20,25 @@ case $1 in
         # Current
         # get all the metadata, parse it for title and artist, and turn those into
         # an $artist - $title output
-        dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \
+        RESULT=`(dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \
             /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
-            string:"org.mpris.MediaPlayer2.Player" string:"Metadata" | \
-            grep -Ev "^method" | grep -Eo '("(.*)")|(\b[0-9][a-zA-Z0-9.]*\b)' | \
-            sed -E '2~2 a|' | tr -d '\n' | sed -E 's/\|/\n/g' | \
-            sed -E 's/(xesam:)|(mpris:)//' | sed -E 's/^"//' | \
-            sed -E 's/"$//' | sed -E 's/"+/|/' | sed -E 's/ +/ /g' | \
-            grep --color=never -E "(title)|(artist)" | cut -d '|' -f '2-' | \
-            tr '\n' '-' | sed -E 's/-/ - /' | sed -E 's/-$/\n/'
-    ;;
-    "j")
-        # Current, escaped (for JSON)
-        dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify \
-            /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get \
-            string:"org.mpris.MediaPlayer2.Player" string:"Metadata" | \
-            grep -Ev "^method" | grep -Eo '("(.*)")|(\b[0-9][a-zA-Z0-9.]*\b)' | \
-            sed -E '2~2 a|' | tr -d '\n' | sed -E 's/\|/\n/g' | \
-            sed -E 's/(xesam:)|(mpris:)//' | sed -E 's/^"//' | \
-            sed -E 's/"$//' | sed -E 's/"+/|/' | sed -E 's/ +/ /g' | \
-            grep --color=never -E "(title)|(artist)" | cut -d '|' -f '2-' | \
-            tr '\n' '-' | sed -E 's/-/ - /' | sed -E 's/-$/\n/' | \
-            python -c 'import json, sys; print(json.dumps(sys.stdin.read()))' | \
-            sed -E 's/^"//' | sed -E 's/\\n"$//'
+            string:"org.mpris.MediaPlayer2.Player" string:"Metadata" 1>/tmp/spotify) 2>&1` 
+        case "$RESULT" in
+            *"org.freedesktop.DBus.Error.ServiceUnknown"*)
+                echo ''
+                exit 1
+            ;;
+            *)
+                grep -Ev "^method" /tmp/spotify | grep -Eo '("(.*)")|(\b[0-9][a-zA-Z0-9.]*\b)' | \
+                sed -E '2~2 a|' | tr -d '\n' | sed -E 's/\|/\n/g' | \
+                sed -E 's/(xesam:)|(mpris:)//' | sed -E 's/^"//' | \
+                sed -E 's/"$//' | sed -E 's/"+/|/' | sed -E 's/ +/ /g' | \
+                grep --color=never -E "(title)|(artist)" | cut -d '|' -f '2-' | \
+                tr '\n' '-' | sed -E 's/-/ - /' | sed -E 's/-$/\n/'
+            ;;
+        esac
     ;;
     *)
-        echo "USAGE: spotifyctl [p|n|s|c|j]"
+        echo "USAGE: spotifyctl [p|n|s|c]"
     ;;
 esac
