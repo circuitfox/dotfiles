@@ -275,3 +275,17 @@ mode $spotify {
 
 bindsym $mod+s mode $spotify
 
+set $backlight "backlight - (u)p 5% (d)own 5% (U)p 10% (D)own 10% (b)attery toggle"
+
+mode $backlight {
+    bindsym u exec --no-startup-id "$HOME/bin/xbacklightctl u"
+    bindsym d exec --no-startup-id "$HOME/bin/xbacklightctl d"
+    bindsym Shift+u exec --no-startup-id "$HOME/bin/xbacklightctl U"
+    bindsym Shift+d exec --no-startup-id "$HOME/bin/xbacklightctl D"
+    bindsym b exec --no-startup-id "$HOME/bin/xbacklightctl b"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+x mode $backlight

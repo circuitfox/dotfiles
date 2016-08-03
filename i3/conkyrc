@@ -23,9 +23,10 @@ conky.text = [[
 [{"full_text": "/: ${fs_free /} free", "short_text": "/: ${fs_free /}", "color": "\#0573c7", "separator_block_width": 15},
  {"full_text": "/home: ${fs_free /home} free", "short_text": "/home: ${fs_free /home}", "color": "\#0573c7", "separator_block_width": 15},
  {"full_text": "M: $memperc%", "color": "\#6425d5", "separator_block_width": 13},
- ${if_up eno1}{"full_text": "E: ${addr eno1}", "color": "\#169857", "separator_block_width": 15},
-              {"full_text": "U: ${upspeedf en01}KiB", "color": "\#e28c36", "separator": false, "separator_block_width": 15},
-              {"full_text": "D: ${downspeedf eno1}KiB", "color": "\#0fbd67", "separator_block_width": 15},
- $else{"full_text": "E: down", "color": "\#ae3f28", "separator_block_width": 15},$endif
+ ${if_up wlp2s0}{"full_text": "W: ${addr wlp2s0} [${wireless_link_qual_perc wlp2s0}%]", "color": "\#169857", "separator_block_width": 15},
+                {"full_text": "U: ${upspeedf wlp2s0}KiB", "color": "\#e28c36", "separator": false, "separator_block_width": 15},
+                {"full_text": "D: ${downspeedf wlp2s0}KiB", "color": "\#0fbd67", "separator_block_width": 15},
+ $else{"full_text": "W: down", "color": "\#ae3f28", "separator_block_width": 15},$endif
+ {"full_text": "B: ${battery_short}", "color": "\#d17a24", "separator_block_width": 15},
  {"full_text": "${time %F %T}", " short_text": " ${time %T}", "color": "\#bbbebc", "separator_block_width": 15}],
 ]]
