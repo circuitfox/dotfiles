@@ -249,19 +249,6 @@ mode $audio {
 
 bindsym $mod+m mode $audio
 
-#set $mpc "mpc - (t)oggle (u)p 2% (d)own 2%"
-#
-#mode $mpc {
-#    bindsym t exec --no-startup-id mpc toggle
-#    bindsym u exec --no-startup-id mpc volume +2
-#    bindsym d exec --no-startup-id mpc volume -2
-#
-#    bindsym Return mode "default"
-#    bindsym Escape mode "default"
-#}
-#
-#bindsym $mod+o mode $mpc
-
 set $mopidy "mopidy - (p)lay/pause (n)ext (s)top"
 
 mode $mopidy {
@@ -288,4 +275,3 @@ mode $spotify {
 
 bindsym $mod+s mode $spotify
 
-exec --no-startup-id "$HOME/bin/audio-tools.sh"
