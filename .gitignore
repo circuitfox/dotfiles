@@ -1,7 +1,5 @@
 .oh-my-zsh/
-.irssi/sasl.auth
-.i3/conkyrc.local
-.vim/.netrwhist
-.vim/bundle/*
-!.vim/bundle/Vundle.vim
+vim/.netrwhist
+vim/bundle/*
+!vim/.ycm_extra_conf.py
 .ycm_extra_conf.pyc

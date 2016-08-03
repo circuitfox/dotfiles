@@ -1,4 +1,4 @@
-# This file is NOT licensed under the GPLv3, which is the license for the rest
+feaw# This file is NOT licensed under the GPLv3, which is the license for the rest
 # of YouCompleteMe.
 #
 # Here's the license text for this file:

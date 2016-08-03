@@ -1,1 +1,0 @@
-/home/chris/.irssi/scripts/cap_sasl.pl

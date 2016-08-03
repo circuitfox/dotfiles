@@ -1,50 +1,51 @@
 #!/bin/sh
 
-DIR="$HOME/dotfiles"
-OLDDIR="$HOME/dotfiles.old"
-FILES=".emacs.d .i3 .Xresources .zsh_custom .zshrc .oh-my-zsh .irssi .vimrc .vim" # files and folders to symlink as dotfiles
-BINFILES="i3bar-conky pulsectl i3lock-blur colors.sh" # files and folders to sylink to ~/bin
+SCRIPTDIR="$(cd $(dirname $0); pwd -P)"
 
-echo "Creating backup dir: $OLDDIR"
-mkdir -p $OLDDIR
-echo "Changing to $DIR"
-cd $DIR
+# symlink these to ~/.*
+DOTFILES=".vimrc .Xresources .zshrc"
+DOTDIRS="i3 vim zsh"
 
-# symlink all the dotfiles
-for file in $FILES; do
-    DESTFILE="$HOME/$file"
-    if [ -e $DESTFILE ]; then
-        mv $DESTFILE $OLDDIR
-    fi
-    if ! [ -h $DESTFILE ]; then
-        ln -s $DIR/$file $DESTFILE
-    fi
-done
+# symlink these to ~/bin
+BINS="bin"
 
-# symlink supporting scripts
-for file in $BINFILES; do
-    DESTFILE="$HOME/bin/$file"
-    if [ -e $DESTFILE ]; then
-        mv $DESTFILE $OLDDIR
-    fi
-    if ! [ -h $DESTFILE ]; then
-        ln -s $DIR/$file $DESTFILE
-    fi
-done
-
-# installs oh-my-zsh and sets zsh as the default shell
-install_oh_my_zsh() {
-    if [ -f /bin/zsh -o -f /usr/bin/zsh ]; then
-        if [ ! -d $DIR/.oh-my-zsh ]; then
-            git clone git://github.com/robbyrussell/oh-my-zsh.git $DIR/.oh-my-zsh
-        fi
-        if [ $(echo "$SHELL") != "$(which zsh)" ]; then
-            chsh -s "$(which zsh)"
-        fi
+link() {
+    if [ -f "$2" -o -h "$2" ]; then
+        echo "Replacing $2"
+        rm "$2"
     else
-        echo "Please install zsh, then run this script again."
-        exit 1
+        echo "Linking $1 -> $2"
     fi
+    ln -s "$1" "$2"
 }
 
-install_oh_my_zsh
+if [ ! -d "$SCRIPTDIR/vim/bundle/Vundle.vim" ]; then
+    printf "Need to clone Vundle, remember to PluginInstall in vim\n"
+    git clone "git://github.com/VundleVim/Vundle.vim.git" "$SCRIPTDIR/vim/bundle/Vundle.vim"
+fi
+
+if [ ! -d "$SCRIPTDIR/.oh-my-zsh" ]; then
+    printf "Need to clone oh-my-zsh\n"
+    git clone "git://github.com/robbyrussell/oh-my-zsh.git" "$SCRIPTDIR/.oh-my-zsh"
+    ln -s "$SCRIPTDIR/.oh-my-zsh" "$HOME/.oh-my-zsh"
+fi
+
+for f in $DOTFILES; do
+    df="$SCRIPTDIR/$f"
+    hf="$HOME/$f"
+    link "$df" "$hf"
+done
+
+for f in $DOTDIRS; do
+    df="$SCRIPTDIR/$f"
+    hf="$HOME/.$f"
+    link "$df" "$hf"
+done
+
+for d in $BINS; do
+    for f in $(ls ${SCRIPTDIR}/$d); do
+        bf="$SCRIPTDIR/$d/$f"
+        hf="$HOME/bin/$f"
+        link "$bf" "$hf"
+    done
+done
