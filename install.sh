@@ -3,8 +3,17 @@
 SCRIPTDIR="$(cd $(dirname $0); pwd -P)"
 
 # symlink these to ~/.*
-DOTFILES=".vimrc .Xresources .zshrc"
-DOTDIRS="i3 vim zsh"
+read -r -d '' DOTFILES << 'END'
+.vimrc
+.Xresources
+.zshrc
+END
+
+read -r -d '' DOTDIRS << 'END'
+i3
+vim
+zsh
+END
 
 # symlink these to ~/bin
 BINS="bin"
