@@ -20,7 +20,8 @@ conky.config = {
 }
 
 conky.text = [[
-[{"full_text": "/: ${fs_free /} free", "short_text": "/: ${fs_free /}", "color": "\#0573c7", "separator_block_width": 15},
+[${if_running spotify}{"full_text": ${lua spotify}, "color": "\#bbbebc", "separator_block_width": 15},$endif
+ {"full_text": "/: ${fs_free /} free", "short_text": "/: ${fs_free /}", "color": "\#0573c7", "separator_block_width": 15},
  {"full_text": "/home: ${fs_free /home} free", "short_text": "/home: ${fs_free /home}", "color": "\#0573c7", "separator_block_width": 15},
  {"full_text": "M: $memperc%", "color": "\#6425d5", "separator_block_width": 13},
  ${if_up eno1}{"full_text": "E: ${addr eno1}", "color": "\#169857", "separator_block_width": 15},
