@@ -5,42 +5,21 @@ if exists("syntax_on")
 endif
 let g:colors_name="circuitfox"
 
-" Colormap
-" cterm8 cterm16 color           hex
-" 0      0       Black           #2a2b2e
-" 4      1       DarkBlue        #057eda
-" 2      2       DarkGreen       #0db461
-" 6      3       DarkCyan        #03a69d
-" 1      4       DarkRed         #bd442c
-" 5      5       DarkMagenta     #6d30db
-" 3      6       Brown           #e08428
-" 7      7       LightGrey, Grey #65686e
-" 0*     8       DarkGrey        #36383b
-" 4*     9       Blue            #4192d9
-" 2*     10      Green           #31b577
-" 6*     11      Cyan            #7dd8c1
-" 1*     12      Red             #bd5e4b
-" 5*     13      Yellow          #e0934f
-" 3*     14      Magenta         #8a58db
-" 7*     15      White           #c5c8c6
-"
-" background: #1e1f20
-
 " generic
 hi Normal ctermfg=White ctermbg=NONE
-hi Comment ctermfg=DarkGrey ctermbg=NONE cterm=ITALIC
+hi Comment ctermfg=8 ctermbg=NONE cterm=ITALIC
 hi Constant ctermfg=DarkMagenta ctermbg=NONE
 hi Special ctermfg=Yellow ctermbg=NONE
 hi Identifier ctermfg=DarkBlue ctermbg=NONE
 hi Statement ctermfg=LightGrey ctermbg=NONE cterm=BOLD
 hi PreProc ctermfg=DarkMagenta ctermbg=NONE
-hi Error ctermfg=DarkGrey ctermbg=Red cterm=BOLD
+hi Error ctermfg=8 ctermbg=Red cterm=BOLD
 hi Number ctermfg=Magenta ctermbg=NONE
 hi Boolean ctermfg=DarkMagenta ctermbg=NONE
 hi String ctermfg=DarkRed ctermbg=NONE
 hi Type ctermfg=3 ctermbg=NONE
 hi Function ctermfg=Green ctermbg=NONE
-hi LineNr ctermfg=DarkGrey ctermbg=NONE
+hi LineNr ctermfg=8 ctermbg=NONE
 hi link Operator Special
 hi Search ctermfg=Black ctermbg=Blue cterm=ITALIC
 hi Title ctermfg=Blue ctermbg=NONE cterm=BOLD
@@ -69,8 +48,8 @@ hi vimGroup ctermfg=Green ctermbg=NONE cterm=ITALIC
 
 " completion menu
 hi Pmenu ctermfg=Yellow ctermbg=Black
-hi PmenuSel ctermfg=DarkGrey ctermbg=Black
-hi PmenuSbar ctermfg=NONE ctermbg=DarkGrey
+hi PmenuSel ctermfg=8 ctermbg=Black
+hi PmenuSbar ctermfg=NONE ctermbg=8
 hi PmenuThumb ctermfg=NONE ctermbg=Yellow
 
 " vimdiff
