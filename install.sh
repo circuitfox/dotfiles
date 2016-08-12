@@ -13,6 +13,7 @@ read -r -d '' DOTDIRS << 'END'
 i3
 vim
 zsh
+xresources
 END
 
 # symlink these to ~/bin
