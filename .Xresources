@@ -1,39 +1,41 @@
+#include<.xresources/theme>
+
 ! special
-URxvt*foreground:   #bbbebc
-URxvt*background:   #1e1f20
-URxvt*cursorColor:  #bbbebc
+URxvt*foreground:   fg
+URxvt*background:   bg
+URxvt*cursorColor:  cColor
 
 ! black
-URxvt*color0:       #2a2b2e
-URxvt*color8:       #36383b
+URxvt*color0:       black
+URxvt*color8:       lblack
 
 ! red
-URxvt*color1:       #ae3f28
-URxvt*color9:       #bd442c
+URxvt*color1:       red
+URxvt*color9:       lred
 
 ! green
-URxvt*color2:       #169857
-URxvt*color10:      #0fbd67
+URxvt*color2:       green
+URxvt*color10:      lgreen
 
 ! yellow
-URxvt*color3:       #d17a24
-URxvt*color11:      #e28c36
+URxvt*color3:       yellow
+URxvt*color11:      lyellow
 
 ! blue
-URxvt*color4:       #0573c7
-URxvt*color12:      #0a86e6
+URxvt*color4:       blue
+URxvt*color12:      lblue
 
 ! magenta
-URxvt*color5:       #6425d5
-URxvt*color13:      #7944da
+URxvt*color5:       magenta
+URxvt*color13:      lmagenta
 
 ! cyan
-URxvt*color6:       #3fc09f
-URxvt*color14:      #5ecaae
+URxvt*color6:       cyan
+URxvt*color14:      lcyan
 
 ! white
-URxvt*color7:       #383a3d
-URxvt*color15:      #bbbebc
+URxvt*color7:       grey
+URxvt*color15:      white
 
 ! no scrollbar
 URxvt*scrollBar:    false
