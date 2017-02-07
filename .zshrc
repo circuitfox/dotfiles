@@ -48,7 +48,7 @@ ZSH_CUSTOM=$HOME/.zsh
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial archlinux)
+plugins=(git mercurial archlinux rustup)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,7 +59,7 @@ source $ZSH_CUSTOM/aliases.sh
 export ANDROID_HOME="$HOME/android/android-sdk-linux"
 export ANDROID_NDK="$HOME/android/android-ndk-r10d"
 
-export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.cabal/bin:$ANDROID_HOME/tools:$ANDROID_NDK_HOME"
+export PATH="$HOME/bin:$HOME/.cabal/bin:$ANDROID_HOME/tools:$ANDROID_NDK_HOME:$HOME/.cargo/bin:$PATH"
 
 export EDITOR="vim"
 export SUDO_EDITOR="vim"
