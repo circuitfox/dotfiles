@@ -76,8 +76,8 @@ man() {
     man "$@"
 }
 
-export XDG_RUNTIME_DIR="/run/user/$UID"
-export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
+#export XDG_RUNTIME_DIR="/run/user/$UID"
+#export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 
 # add cross-compiler path
 #export PATH="$PATH:$HOME/opt/cross/bin"
