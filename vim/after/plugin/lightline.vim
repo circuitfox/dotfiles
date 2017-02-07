@@ -3,12 +3,18 @@ let g:lightline = {
     \ 'active': {
     \   'left': [ [ 'mode' ],
     \             [ 'fugitive', 'readonly', 'filename', 'modified' ],
-    \             [ 'bufferline' ] ]
+    \             [ 'syntastic', 'bufferline' ] ]
     \ },
     \ 'component_function': {
     \   'fugitive': 'LLFugitive',
     \   'readonly': 'LLReadOnly',
     \   'mode': 'LLMode',
+    \ },
+    \ 'component_expand': {
+    \   'syntastic': 'SyntasticStatusLineFlag',
+    \ },
+    \ 'component_type': {
+    \   'syntastic': 'error',
     \ }
     \ }
 

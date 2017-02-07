@@ -32,7 +32,14 @@ Plugin 'mattn/emmet-vim'
 Plugin 'jelera/vim-javascript-syntax'
 "Plugin 'jeaye/color_coded' " Requires companion lib
 Plugin 'cespare/vim-toml'
-Plugin 'rust-lang/rust.vim'
+" Fix for syntastic
+" See https://github.com/rust-lang/rust.vim/issues/130
+"Plugin 'rust-lang/rust.vim'
+Plugin 'jlevesy/rust.vim'
+Plugin 'tpope/vim-surround'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-dispatch'
+Plugin 'vim-syntastic/syntastic'
 
 call vundle#end()
 
@@ -75,6 +82,7 @@ set ruler
 set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
+set number
 set spell
 
 nnoremap / /\v
@@ -177,3 +185,9 @@ endif
 
 let g:user_emmet_leader_key = '<leader>'
 let g:user_emmet_mode = 'nv'
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_rust_checkers = ['cargo']
