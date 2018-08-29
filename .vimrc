@@ -24,8 +24,8 @@ Plugin 'PotatoesMaster/i3-vim-syntax'
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'peterhoeg/vim-qml'
-Plugin 'kshenoy/vim-signature'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'kshenoy/vim-signature'
 Plugin 'beyondmarc/glsl.vim'
 Plugin 'sirtaj/vim-openscad'
 Plugin 'mattn/emmet-vim'
@@ -187,7 +187,7 @@ let g:user_emmet_leader_key = '<leader>'
 let g:user_emmet_mode = 'nv'
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_rust_checkers = ['cargo']
